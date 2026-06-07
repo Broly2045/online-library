@@ -1,0 +1,132 @@
+/* global.css — design system variables, resets, and shared styles */
+
+/* ── Design Tokens ── */
+:root {
+  --bg: #0e0e0f;
+  --bg-2: #161618;
+  --bg-3: #1e1e21;
+  --surface: #242428;
+  --surface-2: #2e2e33;
+  --border: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.14);
+
+  --text-primary: #f0ede8;
+  --text-secondary: rgba(240, 237, 232, 0.55);
+  --text-muted: rgba(240, 237, 232, 0.3);
+
+  /* Warm amber accent */
+  --accent: #e8b86d;
+  --accent-dim: rgba(232, 184, 109, 0.15);
+  --accent-glow: rgba(232, 184, 109, 0.3);
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-elevated: 0 8px 48px rgba(0, 0, 0, 0.6);
+
+  --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-body);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ── Shared Layout ── */
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-2);
+  border-radius: 3px;
+}
+
+/* ── Selection ── */
+::selection {
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+/* ── Page fade-in animation ── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.5s ease both;
+}
+
+/* ── Star rating ── */
+.stars {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+.star {
+  color: var(--accent);
+  font-size: 0.85rem;
+}
+.star.empty {
+  color: var(--surface-2);
+}
